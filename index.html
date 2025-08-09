@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite Interativo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .envelope-container {
+      position: relative;
+      width: 500px;
+      height: 350px;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    .envelope-front, .envelope-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      transition: transform 1s ease;
+    }
+
+    .envelope-front {
+      background: #d23f57;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      transform: rotateY(0deg);
+      z-index: 2;
+    }
+
+    .envelope-back {
+      background: white;
+      padding: 30px;
+      box-sizing: border-box;
+      transform: rotateY(180deg);
+      overflow-y: auto;
+    }
+
+    .envelope-container.open .envelope-front {
+      transform: rotateY(180deg);
+    }
+
+    .envelope-container.open .envelope-back {
+      transform: rotateY(0deg);
+      z-index: 3;
+    }
+
+    .envelope-back h2 {
+      margin-top: 0;
+      color: #d23f57;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .icon {
+      font-size: 18px;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope-container" onclick="this.classList.toggle('open')">
+    <div class="envelope-front">
+      💌 Abrir Convite
+    </div>
+    <div class="envelope-back">
+      <h2>Convite Especial</h2>
+      <p>Olá! Você foi convidada para um dia inesquecível!</p>
+      <p><strong>🕒 Roteiro do dia 28/08:</strong></p>
+      <ul>
+        <li>13:00 - 🌹 Casa das Rosas – passeio literário + jardim</li>
+        <li>15:00 - 🖼️ Conhecer o MASP</li>
+        <li>16:30 - 🏨 Check-in no Hotel Charlie Sintra Jardins</li>
+        <li>20:00 - 🍽️ Jantar romântico no Sal Gastronomia </li>
+        <li>22:00 - 🍷 Aproveitar o quarto</li>
+      </ul>
+      <p>Espero por você! 💌</p>
+    </div>
+  </div>
+</body>
+</html>
