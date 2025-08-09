@@ -1,14 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Convite Interativo</title>
+
+  <!-- Fonte Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #e0eafc, #cfdef3);
       display: flex;
       align-items: center;
@@ -33,18 +38,21 @@
       transition: transform 1s ease;
     }
 
+    /* Frente do envelope */
     .envelope-front {
       background: #d23f57;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 24px;
       font-weight: bold;
+      font-size: clamp(28px, 5vw, 44px); /* Maior e responsivo */
+      letter-spacing: 0.5px;
       transform: rotateY(0deg);
       z-index: 2;
     }
 
+    /* Verso do envelope */
     .envelope-back {
       background: white;
       padding: 30px;
@@ -53,28 +61,33 @@
       overflow-y: auto;
     }
 
+    /* Animação de abertura */
     .envelope-container.open .envelope-front {
       transform: rotateY(180deg);
     }
-
     .envelope-container.open .envelope-back {
       transform: rotateY(0deg);
       z-index: 3;
     }
 
+    /* Título do convite */
     .envelope-back h2 {
       margin-top: 0;
       color: #d23f57;
     }
 
-    ul {
+    /* Lista de horários */
+    .envelope-back ul {
       padding-left: 20px;
+      margin: 0;
     }
-
-    ul li {
+    .envelope-back ul li {
       margin-bottom: 8px;
+      font-size: clamp(14px, 1.6vw, 18px); /* Menor e responsivo */
+      line-height: 1.4;
     }
 
+    /* Ícones */
     .icon {
       font-size: 18px;
       margin-right: 6px;
@@ -83,9 +96,12 @@
 </head>
 <body>
   <div class="envelope-container" onclick="this.classList.toggle('open')">
+    <!-- Frente -->
     <div class="envelope-front">
       💌 Abrir Convite
     </div>
+
+    <!-- Verso -->
     <div class="envelope-back">
       <h2>Convite Especial</h2>
       <p>Olá! Você foi convidada para um dia inesquecível!</p>
@@ -94,7 +110,7 @@
         <li>13:00 - 🌹 Casa das Rosas – passeio literário + jardim</li>
         <li>15:00 - 🖼️ Conhecer o MASP</li>
         <li>16:30 - 🏨 Check-in no Hotel Charlie Sintra Jardins</li>
-        <li>20:00 - 🍽️ Jantar romântico no Sal Gastronomia </li>
+        <li>20:00 - 🍽️ Jantar romântico no Sal Gastronomia</li>
         <li>22:00 - 🍷 Aproveitar o quarto</li>
       </ul>
       <p>Espero por você! 💌</p>
